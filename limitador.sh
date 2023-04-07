@@ -101,6 +101,6 @@ case $1 in
            *)user_type=$(echo "$all_user"|grep -v 'hwid\|token'|awk -F ':' '{print $1}') && sshmonitor;;
 esac
 
-# @daily root /etc/ADMRufu/install/limitador.sh >> /var/spool/cron/crontabs/root
+# @daily root /etc/VpsPack/udp/limitador.sh >> /var/spool/cron/crontabs/root
 
-# 0 1 * * * /etc/ADMRufu/install/limitador.sh >> /var/spool/cron/crontabs/root
+# 0 1 * * * /etc/VpsPack/udp/limitador.sh >> /var/spool/cron/crontabs/root
