@@ -5,7 +5,7 @@ lang_dir="$udp_file/lang"
 lang="$lang_dir/lang"
 
 idioam_lang(){
-  source <(curl -sSl 'https://raw.githubusercontent.com/rudi9999/SocksIP-udpServer/main/lang/lang')
+  source <(curl -sSl 'https://raw.githubusercontent.com/firesmx/u/main/lang/lang')
   title -ama 'IDIOMA/LANGUAGE'
   echo " $(msg -verd "[0]") $(msg -verm2 '>') $(msg -azu "Español Default")"
   n=0
@@ -22,7 +22,7 @@ idioam_lang(){
   let lg-- 
   [[ ! -d $lang_dir/${list_lang[$lg]} ]] && mkdir -p $lang_dir/${list_lang[$lg]} || rm -rf $lang_dir/${list_lang[$lg]}/*
   for arch in $listarq; do
-    if ! wget -O $lang_dir/${list_lang[$lg]}/$arch "https://raw.githubusercontent.com/rudi9999/SocksIP-udpServer/main/lang/${list_lang[$lg]}/$arch" &>/dev/null ;then
+    if ! wget -O $lang_dir/${list_lang[$lg]}/$arch "https://raw.githubusercontent.com/firesmx/u/main/lang/${list_lang[$lg]}/$arch" &>/dev/null ;then
       rm -rf $lang_dir/${list_lang[$lg]}
       echo '' > $lang ; exit
     fi
@@ -79,7 +79,7 @@ if [[ ! -e $udp_file/UDPserver.sh ]]; then
 	wget -O $udp_file/module 'https://raw.githubusercontent.com/rudi9999/Herramientas/main/module/module' &>/dev/null
 	chmod +x $udp_file/module
 	#source $udp_file/module
-	wget -O $udp_file/limitador.sh "https://raw.githubusercontent.com/rudi9999/SocksIP-udpServer/main/limitador.sh" &>/dev/null
+	wget -O $udp_file/limitador.sh "https://raw.githubusercontent.com/firesmx/u/main/limitador.sh" &>/dev/null
 	chmod +x $udp_file/limitador.sh
 	echo '/etc/UDPserver/UDPserver.sh' > /usr/bin/udp
 	chmod +x /usr/bin/udp
@@ -638,7 +638,7 @@ make_service(){
 
 cat <<EOF > /etc/systemd/system/UDPserver.service
 [Unit]
-Description=UDPserver Service by @Rufu99
+Description=UDPserver
 After=network.target
 
 [Service]
@@ -863,9 +863,11 @@ quit_exclude(){
 }
 
 menu_udp(){
-	title "${a1:-SCRIPT DE CONFIGRACION UDPserver} BY @Rufu99"
+	title "${a1:-SCRIPT UDP"
 	print_center -ama 'UDPserver Binary by team newtoolsworks'
 	print_center -ama 'UDPclient Android SocksIP'
+	print_center -ama 'MOD VpsPack - PowerMX'
+	print_center -ama 'Creditos: Rufu / NewtoolsWorks'
 	msg -bar
   
 	if [[ $(type -p udpServer) ]]; then
