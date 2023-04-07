@@ -31,7 +31,7 @@ idioam_lang(){
 }
 
 repo_install(){
-  link="https://raw.githubusercontent.com/rudi9999/ADMRufu/main/Repositorios/$VERSION_ID.list"
+  link="https://raw.githubusercontent.com/firesmx/u/main/Repositorios/$VERSION_ID.list"
   case $VERSION_ID in
     8*|9*|10*|11*|16.04*|18.04*|20.04*|20.10*|21.04*|21.10*|22.04*) [[ ! -e /etc/apt/sources.list.back ]] && cp /etc/apt/sources.list /etc/apt/sources.list.back
                                                                     wget -O /etc/apt/sources.list ${link} &>/dev/null;;
@@ -71,12 +71,12 @@ check_sistem(){
 if [[ ! -e $udp_file/UDPserver.sh ]]; then
   mkdir $udp_file
   chmod -R +x $udp_file
-  source <(curl -sSL 'https://raw.githubusercontent.com/rudi9999/Herramientas/main/module/module')
+  source <(curl -sSL 'https://raw.githubusercontent.com/firesmx/u/main/module')
   idioam_lang
   [[ -e $lang ]] && newlang=$(cat $lang) && [[ ! $newlang = '' ]] && source $udp_file/lang/$newlang/UDPserver
   source /etc/os-release
   check_sistem
-	wget -O $udp_file/module 'https://raw.githubusercontent.com/rudi9999/Herramientas/main/module/module' &>/dev/null
+	wget -O $udp_file/module 'https://raw.githubusercontent.com/firesmx/u/module' &>/dev/null
 	chmod +x $udp_file/module
 	#source $udp_file/module
 	wget -O $udp_file/limitador.sh "https://raw.githubusercontent.com/firesmx/u/main/limitador.sh" &>/dev/null
@@ -864,10 +864,11 @@ quit_exclude(){
 
 menu_udp(){
 	title "${a1:-SCRIPT UDP"
-	print_center -ama 'UDPserver Binary by team newtoolsworks'
+	print_center -ama 'UDPserver Binario: newtoolsworks'
 	print_center -ama 'UDPclient Android SocksIP'
 	print_center -ama 'MOD VpsPack - PowerMX'
 	print_center -ama 'Creditos: Rufu / NewtoolsWorks'
+	print_center -ama 'AndroidMexico Team'
 	msg -bar
   
 	if [[ $(type -p udpServer) ]]; then
