@@ -896,7 +896,7 @@ menu_udp(){
 		echo " $(msg -verd "[6]") $(msg -verm2 '>') $(msg -verm2 "${a7:-REMOVER CLIENTE}")"
 		echo " $(msg -verd "[7]") $(msg -verm2 '>') $(msg -ama "${a8:-RENOVAR CLIENTE}")"
 		echo " $(msg -verd "[8]") $(msg -verm2 '>') $(msg -azu "${a9:-BLOQUEAR/DESBLOQUEAR CLIENTE}")"
-		echo " $(msg -verd "[9]") $(msg -verm2 '>') $(msg -blu "${a10:-DETELLES DE LOS CLIENTES}")"
+		echo " $(msg -verd "[9]") $(msg -verm2 '>') $(msg -blu "${a10:-DETALLES DE LOS CLIENTES}")"
 		echo " $(msg -verd "[10]") $(msg -verm2 '>') $(msg -azu "${a11:-LIMITADO DE CUENTAS}")"
 		msg -bar3
     print_center -ama "${a12:-EXCLUCION DE PUERTO}"
