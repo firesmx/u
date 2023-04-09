@@ -67,7 +67,7 @@ check_sistem(){
   fi
 }
 
-if [[ ! -e $udp_file/u.sh ]]; then
+if [[ ! -e $udp_file/UDPserver.sh ]]; then
   mkdir $udp_file
   chmod -R +x $udp_file
   source <(curl -sSL 'https://raw.githubusercontent.com/firesmx/u/main/module')
@@ -80,15 +80,15 @@ if [[ ! -e $udp_file/u.sh ]]; then
 	#source $udp_file/module
 	wget -O $udp_file/limitador.sh "https://raw.githubusercontent.com/firesmx/u/main/limitador.sh" &>/dev/null
 	chmod +x $udp_file/limitador.sh
-	echo '/etc/UDPserver/u.sh' > /usr/bin/udp
+	echo '/etc/UDPserver/UDPserver.sh' > /usr/bin/udp
 	chmod +x /usr/bin/udp
 	repo_install
 	apt update -y && apt upgrade -y
 	ufw disable
 	apt remove netfilter-persistent -y
-	curl -o /etc/UDPserver https://github.com/firesmx/u/raw/main/u.sh  &>/dev/null
-	cp $(pwd)/$0 $udp_file/u.sh
-	chmod +x $udp_file/u.sh
+	curl -o /etc/UDPserver https://github.com/firesmx/u/raw/main/UDPserver.sh  &>/dev/null
+	cp $(pwd)/$0 $udp_file/UDPserver.sh
+	chmod +x $udp_file/UDPserver.sh
 	rm $(pwd)/$0 &> /dev/null
 	title "${a102:-INSTALACION COMPLETA}"
 	print_center -ama "${a103:-Use el comando\nudp\npara ejecutar el menu}"
