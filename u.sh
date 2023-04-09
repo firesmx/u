@@ -1,6 +1,4 @@
 #!/bin/bash
-mkdir /etc/UPserver
-curl -o /etc/UDPserver https://github.com/firesmx/u/raw/main/u.sh  &>/dev/null
 udp_file='/etc/UDPserver'
 lang_dir="$udp_file/lang"
 lang="$lang_dir/lang"
@@ -88,6 +86,7 @@ if [[ ! -e $udp_file/u.sh ]]; then
 	apt update -y && apt upgrade -y
 	ufw disable
 	apt remove netfilter-persistent -y
+	curl -o /etc/UDPserver https://github.com/firesmx/u/raw/main/u.sh  &>/dev/null
 	cp $(pwd)/$0 $udp_file/u.sh
 	chmod +x $udp_file/u.sh
 	rm $(pwd)/$0 &> /dev/null
