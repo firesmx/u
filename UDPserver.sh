@@ -888,7 +888,7 @@ menu_udp(){
 		fi
 		echo " $(msg -verd "[1]") $(msg -verm2 '>') $(msg -verm2 "${a3:-DESINSTALAR UDPserver}")"
 		echo -e " $(msg -verd "[2]") $(msg -verm2 '>') $(msg -azu "${a4:-INICIAR/DETENER UDPserver}") $estado"
-    echo " $(msg -verd "[3]") $(msg -verm2 '>') $(msg -azu "${a5:-REOMOVER SCRIPT}")"
+    echo " $(msg -verd "[3]") $(msg -verm2 '>') $(msg -azu "${a5:-REMOVER SCRIPT}")"
 		msg -bar3
     echo " $(msg -verd "[4]") $(msg -verm2 '>') $(msg -azu "IDIOMA/LANGUAGE")"
     msg -bar3
