@@ -867,8 +867,6 @@ menu_udp(){
 	print_center -ama 'UDPserver Binario: newtoolsworks'
 	print_center -ama 'UDPclient Android SocksIP'
 	print_center -ama 'MOD VpsPack - PowerMX'
-	print_center -ama 'Creditos: Rufu / NewtoolsWorks'
-	print_center -ama 'AndroidMexico Team'
 	msg -bar
   
 	if [[ $(type -p udpServer) ]]; then
