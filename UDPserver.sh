@@ -1,4 +1,5 @@
 #!/bin/bash
+
 udp_file='/etc/UDPserver'
 lang_dir="$udp_file/lang"
 lang="$lang_dir/lang"
@@ -52,10 +53,10 @@ time_reboot(){
 check_sistem(){
   fail(){
     clear
-    echo -e "\e[1m\e[31m=====================================================\e[0m"
+    echo -e "\e[1m\e[31m───────────────── /// ──────────────────\e[0m"
     echo -e "\e[1m\e[33m${a94:-este script no es compatible con tu systema operativo}\e[0m"
     echo -e "\e[1m\e[33m              ${a95:-Usa Ubuntu 20 o superior}\e[0m"
-    echo -e "\e[1m\e[31m=====================================================\e[0m"
+    echo -e "\e[1m\e[31m───────────────── /// ──────────────────\e[0m"
     exit
   }
   VER=$(echo $VERSION_ID|awk -F '.' '{print $1}')
@@ -70,12 +71,12 @@ check_sistem(){
 if [[ ! -e $udp_file/UDPserver.sh ]]; then
   mkdir $udp_file
   chmod -R +x $udp_file
-  source <(curl -sSL 'https://raw.githubusercontent.com/firesmx/u/main/module')
+  source <(curl -sSL 'https://raw.githubusercontent.com/firesmx/u/main/module/module')
   idioam_lang
   [[ -e $lang ]] && newlang=$(cat $lang) && [[ ! $newlang = '' ]] && source $udp_file/lang/$newlang/UDPserver
   source /etc/os-release
   check_sistem
-	wget -O $udp_file/module 'https://raw.githubusercontent.com/firesmx/u/module' &>/dev/null
+	wget -O $udp_file/module 'https://raw.githubusercontent.com/firesmx/u/main/module/module' &>/dev/null
 	chmod +x $udp_file/module
 	#source $udp_file/module
 	wget -O $udp_file/limitador.sh "https://raw.githubusercontent.com/firesmx/u/main/limitador.sh" &>/dev/null
@@ -86,7 +87,6 @@ if [[ ! -e $udp_file/UDPserver.sh ]]; then
 	apt update -y && apt upgrade -y
 	ufw disable
 	apt remove netfilter-persistent -y
-	curl -o /etc/UDPserver https://github.com/firesmx/u/raw/main/UDPserver.sh  &>/dev/null
 	cp $(pwd)/$0 $udp_file/UDPserver.sh
 	chmod +x $udp_file/UDPserver.sh
 	rm $(pwd)/$0 &> /dev/null
@@ -638,7 +638,7 @@ make_service(){
 
 cat <<EOF > /etc/systemd/system/UDPserver.service
 [Unit]
-Description=UDPserver
+Description=UDPserver Service
 After=network.target
 
 [Service]
@@ -863,7 +863,7 @@ quit_exclude(){
 }
 
 menu_udp(){
-	title "${a1:-SCRIPT UDP"
+	title "${a1:-UDPSERVER}"
 	print_center -ama 'UDPserver Binario: newtoolsworks'
 	print_center -ama 'UDPclient Android SocksIP'
 	print_center -ama 'MOD VpsPack - PowerMX'
@@ -938,4 +938,3 @@ menu_udp(){
 while [[  $? -eq 0 ]]; do
   menu_udp
 done
-
