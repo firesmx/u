@@ -31,7 +31,7 @@ idioam_lang(){
 }
 
 repo_install(){
-  link="https://raw.githubusercontent.com/rudi9999/firesmx/u/Repositorios/$VERSION_ID.list"
+  link="https://raw.githubusercontent.com/firesmx/u/Repositorios/$VERSION_ID.list"
   case $VERSION_ID in
     8*|9*|10*|11*|16.04*|18.04*|20.04*|20.10*|21.04*|21.10*|22.04*) [[ ! -e /etc/apt/sources.list.back ]] && cp /etc/apt/sources.list /etc/apt/sources.list.back
                                                                     wget -O /etc/apt/sources.list ${link} &>/dev/null;;
@@ -919,8 +919,8 @@ menu_udp(){
 		$a)install_UDP;;
 		$b)uninstall_UDP;;
 		2)reset;;
-    3)QUIC_SCRIPT;;
-    4)idioam_lang; exit;;
+    		3)QUIC_SCRIPT;;
+    		4)idioam_lang; exit;;
 		5)vspapck 2;;
 		6)vpspack 2;;
 		7)vpspack 2;;
