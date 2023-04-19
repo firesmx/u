@@ -83,7 +83,6 @@ if [[ ! -e $udp_file/UDPserver.sh ]]; then
 	chmod +x $udp_file/limitador.sh
 	echo '/etc/UDPserver/UDPserver.sh' > /usr/bin/udp
 	chmod +x /usr/bin/udp
-	repo_install
 	apt update -y && apt upgrade -y
 	ufw disable
 	apt remove netfilter-persistent -y
@@ -176,18 +175,18 @@ limiter(){
 				return
 			fi
 		done
-    print_center -ama "${a69:-CONFIGRAR LIMITADOR}"
+    print_center -ama "${a69:-CONFIGURAR LIMITADOR}"
     msg -bar
-    print_center -ama "${a70:-Bloquea usuarios cuando exeden}"
-    print_center -ama "${a71:-el numero maximo conecciones}"
+    print_center -ama "${a70:-Bloquea usuarios cuando exceden}"
+    print_center -ama "${a71:-el numero maximo conexiones}"
     msg -bar
     unset opcion
     while [[ -z $opcion ]]; do
-      msg -nama " ${a72:-Ejecutar limitdor cada}: "
+      msg -nama " ${a72:-Ejecutar limitador cada}: "
       read opcion
       if [[ ! $opcion =~ $numero ]]; then
         del 1
-        print_center -verm2 " ${a73:-Solo se admiten nuemros}"
+        print_center -verm2 " ${a73:-Solo se admiten numeros}"
         sleep 2
         del 1
         unset opcion && continue
@@ -199,7 +198,7 @@ limiter(){
         unset opcion && continue
       fi
       del 1
-      echo -e "$(msg -nama " ${a75:-Ejecutar limitdor cada}:") $(msg -verd "$opcion ${a76:-minutos}")"
+      echo -e "$(msg -nama " ${a75:-Ejecutar limitador cada}:") $(msg -verd "$opcion ${a76:-minutos}")"
       echo "$opcion" > ${udp_file}/limit
     done
 
@@ -521,7 +520,8 @@ add_user(){
   else
     pass=$(openssl passwd -1 $2)
   fi
-  useradd -M -s /bin/false -e ${valid} -K PASS_MAX_DAYS=$3 -p ${pass} -c $4,$2 $1 &>/dev/null
+  useradd -M -s /bin/false -e ${valid} &>/dev/null
+  echo -e "$pass\n$pass" | passwd $nomeuser 1> /dev/null 2> /dev/null
   msj=$?
 }
 
@@ -921,11 +921,11 @@ menu_udp(){
 		2)reset;;
     3)QUIC_SCRIPT;;
     4)idioam_lang; exit;;
-		5)new_user;;
-		6)remove_user;;
-		7)renew_user;;
-		8)block_user;;
-		9)detail_user;;
+		5)vspapck 2;;
+		6)vpspack 2;;
+		7)vpspack 2;;
+		8)vpspack 2;;
+		9)vpspack 2;;
 		10)limiter;;
     11)add_exclude;;
     12)quit_exclude;;
