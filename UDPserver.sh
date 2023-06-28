@@ -921,7 +921,7 @@ menu_udp(){
 		2)reset;;
     		3)QUIC_SCRIPT;;
     		4)idioam_lang; exit;;
-		5)vpsapck 2;;
+		5)vpspack 2;;
 		6)vpspack 2;;
 		7)vpspack 2;;
 		8)vpspack 2;;
