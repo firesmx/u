@@ -1,5 +1,5 @@
 #!/bin/bash
-
+mkdir /etc/UDPserver
 udp_file='/etc/UDPserver'
 lang_dir="$udp_file/lang"
 lang="$lang_dir/lang"
